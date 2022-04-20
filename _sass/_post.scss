@@ -1,7 +1,7 @@
 .post-content {
   width: 600px;
   display: block;
-  margin: 10px auto 10px;
+  margin: 5px auto 5px;
 }
 .post-date {
   display: block;
@@ -19,7 +19,7 @@
   .post-content {
     width: 60vw;
     display: block;
-    margin: 10px auto 10px;
+    margin: 5px auto 5px;
   }
   .featured-image img {
     align: middle;
@@ -30,9 +30,9 @@
 }
 @media (max-width: $tablet-width) {
   .post-content {
-    width: 95vw;
+    width: 105vw;
     display: block;
-    margin: 10px auto 10px;
+    margin: 5px auto 5px;
   }
   .featured-image img {
     align: middle;
