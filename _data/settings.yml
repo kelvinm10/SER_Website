@@ -9,7 +9,7 @@ google-ID: ''
 menu:
 - {name: 'About The Project',             url: 'about-the-project'}
 - {name: 'Results',                       url: 'results'}
-- {name: 'Future Work',                   url: 'sample-posts'}
+- {name: 'Future Work',                   url: 'future-work'}
 - {name: 'About the Authors',             url: 'about-the-authors'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
