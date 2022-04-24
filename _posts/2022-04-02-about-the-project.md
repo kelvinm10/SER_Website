@@ -58,11 +58,7 @@ learning models, as seen in the results tab.
 ## Neural Networks
 
 
-## Speech Emotion Recognition Web Application
-Once we gathered all of our results, we built a real-time web application that records a user's voice and then makes a 
-prediction in real time on their emotion in the recording. Use the following link to try out the Web Application!
-[https://emotionspeech.herokuapp.com/
-](https://emotionspeech.herokuapp.com/)
+
 
 
 
