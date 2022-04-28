@@ -33,7 +33,7 @@ mel spectrograms. Audio data can be viewed as a signal with different frequencie
 
 <img src="{{ site.github.url }}/assets/img/fft.jpg" alt="fft" style="width:401px;height:331px;">
 
-For <a href="https://link.springer.com/content/pdf/bbm%3A978-3-319-49220-9%2F1.pdf">MFCC's</a>, the log of the magnitude of the frequencies of the fourier transform are warped on a Mel scale followed by a inverse of a discrete continuous transform. The mel scale  is a perceptual scale that maps frequencies to a percpetual scale of pitches judged to be in equal distance by listeners. The resulting transformation is a 2D array of the intensities 
+For <a href="https://link.springer.com/content/pdf/bbm%3A978-3-319-49220-9%2F1.pdf">MFCC's</a>, the log of the magnitude of the frequencies of the fourier transform are warped on a <a href="https://en.wikipedia.org/wiki/Mel_scale">Mel Scale</a>, followed by a inverse of a discrete continuous transform. The mel scale  is a perceptual scale that maps frequencies to a percpetual scale of pitches judged to be in equal distance by listeners. The resulting transformation is a 2D array of the intensities 
 of the mel coefficients over time.
 
 <img src="{{ site.github.url }}/assets/img/mfcc_happy_sample.jpg" alt="mfcc" style="width:412px;height:321px;">
