@@ -15,5 +15,5 @@ can learn different voice patterns and more accurately predict an emotion. We wi
 than the 4 we focused on in this project in order to widen the range of applications for our web application.
 
 In terms of our data modeling, we could potentially harness transfer learning to achieve a better classifier. There
-are pretrained models that have been trained with thousands of images such as ImageNet and therefore are rubost in 
+are pretrained models that have been trained with thousands of images such as ImageNet and therefore are robust in 
 feature extraction. 
