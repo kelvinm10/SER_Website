@@ -69,10 +69,13 @@ is added with the same parameters then a dense layer followed by softmax regress
 before a ReLu activation step which was added after each convolutional or dense layer. The model was trained at 20 epochs
 with a max learning rate (0.001), a negative log likelihood loss and ADAM as optimizer. 
 
+
+<img src="{{ site.github.url }}/assets/img/CNN.jpeg" alt="CNN" style="width:512px;height:400px;">
+
 A third model was utilized using a CNN layer for feature extraction before a Long Short-Term Memory (LSTM) network. The feature extractor contained two convolutional layers and a max pool layer. The bidirectional LSTM has 128 hiddern layers with 1 layer size. The output was followed by a softmax
 layer. The model was trained at 100 epochs with cross entropy loss as the loss function and ADAM as optimizer. 
 
-
+<img src="{{ site.github.url }}/assets/img/LSTM.jpeg" alt="LSTM" style="width:400px;height:400px;">
 
 
 
