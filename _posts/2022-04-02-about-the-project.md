@@ -25,6 +25,10 @@ a certain number of emotions were kept in the final models outputted due to a va
 dimensionality reduction in the modeling process. in total, there are 12,142 audio files all in english and saying a multitude
 of different sentences with different tones and emotions.
 
+## From Audio to Arrays
+MFCC
+MEL
+
 
 ## Methodology
 Before modeling our data, we first needed to perform the ETL process as well as clean our data. The ETL process
@@ -38,17 +42,17 @@ the root mean squared value for each frame, and the mean zero crossing value for
 passed into the [featurewiz](https://github.com/AutoViML/featurewiz) method in order to programmatically select relevant features 
 and drop highly correlated features. Featurewiz utilizes the XGBoost algorithm and correlation coefficients in order to extract the 
 best "minimum optimal" features and drop highly correlated features .
-**TALK ABOUT FEATURES FOR THE NEURAL NET HERE AND HOW IT IS DIFFERENT THAN THE MEANS USED IN THE TRADITIONAL MODELS**
 
-For the Deep Learning Models, different preprocessing methods were explored depending on the type of Convolutional Neural Network (CNN).
-For the 1D Convolutional Neural Network, the preprocessed data used to train the traditional machine learning models was transformed into a
-1D tensor. For the 2D Convolutional Neural Network, the first 20 MFCC coefficient was extracted for the first 50 sec of the audio file.
-The melspectragram was also generated for each audio file utilizing the first 50 sec and first 20 Mel coefficients. The Mel scale was transformed 
-to a log decibel scale with a limit of 80 db. The sampling rate for every feature extraction was standardized at 22050. The two arrays
-were stacked to create a (2,20,50) array. Each array was stored as a list with its corresponding category.
+While traditional ML methods require some extensive feature engineering, Neural Networks can extract the optimal features that would 
+minimize the loss function. Since the MFCCs and the melspectrograms can be viewed as image, a CNN would be suitable for this classification
+problem. For the 1D Convolutional Neural Network, the preprocessed data used to train the traditional machine learning models was transformed into a
+1D tensor. For the 2D Convolutional Neural Network, all 20 MFCC coefficients were extracted for the first 50 sec of the audio file to create a 2D
+array. The melspectragram was also processed for each audio file utilizing the first 50 sec and first 20 Mel coefficients. The melspectgrams were
+transformed to a log decibel scale with a limit of 80 db and the sampling rate for every feature extraction was standardized at 22050. The two arrays
+were stacked to create a (2,20,50) tensor. 
 
 ## Traditional Machine Learning Models
-For the traditional machine learning models, we attempted to solve a multi-class classification problem around 4 different 
+For the traditional machine learning and deep learning models, we attempted to solve a multi-class classification problem around 4 different 
 emotions: happy, sad, angry, and neutral. The models tested include random forests, support vector machines, and decision trees.
 The features that are considered most important by featurewiz and the XGBoost algorithms include melspectograms (especially around 
 the 13th - 14th frame) the first few mfcc values, and the mean zero crossing value. This is expected, because as seen in past research, 
@@ -59,16 +63,14 @@ testing, and evaluating our models, we found that the random forest model perfor
 learning models, as seen in the results tab.
 
 ## Neural Networks
-Feature selection is usually performed minimally when training neural networks since the network itself will learn and process the most 
-optimal features during training. For the 1D CNN, The network contained a single convolutional layer (kernel size=5) followed by 
-a ReLU activation layer and a dropout layer (p=0.5). The layer was then flattened followed by a dense layer and softmax regression.
+For the 1D CNN, The network contained a single convolutional layer (kernel size=5) followed by a ReLU activation layer and a dropout layer (p=0.5). 
+The layer was then flattened followed by a dense layer and softmax regression.
 
 For the 2D CNN, pytorch was utilized along with a CUDA GPU to speed up training. The network architecture involved
 two convolutional layers (stride=2, kernel size=(2,5)) followed by a (2,2) pooling layer. Another convolutional layer 
 is added with the same parameters then a dense layer followed by softmax regression. A dropout layer was added (p=0.5)
-before a ReLu activation step which was added after each convolutional or dense layer. The model was trained at 20 epochs
+before every ReLu activation step which was added after each convolutional or dense layer. The model was trained at 20 epochs
 with a max learning rate (0.001), a negative log likelihood loss and ADAM as optimizer. 
-
 
 <img src="{{ site.github.url }}/assets/img/CNN.jpeg" alt="CNN" style="width:512px;height:400px;">
 
