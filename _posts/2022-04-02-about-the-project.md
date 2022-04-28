@@ -10,8 +10,7 @@ image: serImage.jpg
 ## Introduction
 
 The recognition of emotion in human speech is a widely researched topic, as there are many different applications 
-that would directly benefit from this technology such as real time customer service as well as providing support for potential 
-deaf people. With the ability to accurately decipher someone's emotion based on <b>how</b> a sentence is spoken can vastly 
+that would directly benefit from this technology such as real time customer service as well as providing additional support for individuals with hearing impairments. With the ability to accurately decipher someone's emotion based on <b>how</b> a sentence is spoken can vastly 
 aid those who are deaf by providing additional social cues that may not be existent due to their condition. A real time 
 classification of emotion throughout a conversation would also aid customer service of companies and provide further customer 
 satisfaction by classifying the emotion of customers in real time.
