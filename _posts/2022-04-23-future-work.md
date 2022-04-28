@@ -13,3 +13,7 @@ when conversing with people. Extending our project to meet these goals involves 
 including training our model with more data containing a wider range of voices and accents. With more data, the model
 can learn different voice patterns and more accurately predict an emotion. We will also attempt to model more emotions
 than the 4 we focused on in this project in order to widen the range of applications for our web application.
+
+In terms of our data modeling, we could potentially harness transfer learning to achieve a better classifier. There
+are pretrained models that have been trained with thousands of images such as ImageNet and therefore are rubost in 
+feature extraction. 
