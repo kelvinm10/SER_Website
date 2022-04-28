@@ -59,16 +59,18 @@ testing, and evaluating our models, we found that the random forest model perfor
 learning models, as seen in the results tab.
 
 ## Neural Networks
-Feature selection is usually performed minimally when training neural networks since the network itself learns the optimal
-features during training. For the 1D CNN, The network contained a single convolutional layer (kernel size=5) followed by 
+Feature selection is usually performed minimally when training neural networks since the network itself will learn and process the most 
+optimal features during training. For the 1D CNN, The network contained a single convolutional layer (kernel size=5) followed by 
 a ReLU activation layer and a dropout layer (p=0.5). The layer was then flattened followed by a dense layer and softmax regression.
 
 For the 2D CNN, pytorch was utilized along with a CUDA GPU to speed up training. The network architecture involved
 two convolutional layers (stride=2, kernel size=(2,5)) followed by a (2,2) pooling layer. Another convolutional layer 
 is added with the same parameters then a dense layer followed by softmax regression. A dropout layer was added (p=0.5)
-before a ReLu activation step which was added after each convolutional or dense layer. The model was trained at 25 epochs
-with a max learning rate (0.001) and loss function as Cross Entropy and ADAM as optimizer. 
+before a ReLu activation step which was added after each convolutional or dense layer. The model was trained at 20 epochs
+with a max learning rate (0.001), a negative log likelihood loss and ADAM as optimizer. 
 
+A third model was utilized using a CNN layer for feature extraction before a Long Short-Term Memory (LSTM) network. The feature extractor contained two convolutional layers and a max pool layer. The bidirectional LSTM has 128 hiddern layers with 1 layer size. The output was followed by a softmax
+layer. The model was trained at 100 epochs with cross entropy loss as the loss function and ADAM as optimizer. 
 
 
 
