@@ -25,11 +25,24 @@ a certain number of emotions were kept in the final models outputted due to a va
 dimensionality reduction in the modeling process. in total, there are 12,142 audio files all in english and saying a multitude
 of different sentences with different tones and emotions.
 
-<img src="{{ site.github.url }}/assets/img/cat_dist.jpg" alt="cat_dist" style="width:380px;height:380px;">
+<img src="{{ site.github.url }}/assets/img/cat_dist.jpg" alt="cat_dist" style="width:380px;height:370px;">
 
 ## From Audio to Arrays
+
+Powerspectrum
+
+Audio data -> spec dens -> FFT -> MFCC and MEL
+
+<img src="{{ site.github.url }}/assets/img/spec_dens.jpg" alt="cat_dist" style="width:322px;height:194px;">
+
+
 MFCC
+
+<img src="{{ site.github.url }}/assets/img/mfcc_happy_sample.jpg" alt="cat_dist" style="width:432px;height:288px;">
+
 MEL
+
+<img src="{{ site.github.url }}/assets/img/mfcc_fearful_sample.jpg" alt="cat_dist" style="width:432px;height:288px;">
 
 
 ## Methodology
