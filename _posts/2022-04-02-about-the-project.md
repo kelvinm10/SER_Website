@@ -29,18 +29,16 @@ of different sentences with different tones and emotions.
 
 ## From Audio to Arrays
 
-Powerspectrum
+There are several audio processing methods avilable but for this study, we mainly focused on Mel Frequency Cepstral Coefficient (MFCC) and
+mel spectrograms. Audio data can be viewed as a signal with different frequencies with corresponding amplitudes propagating through time. A Fourier transform is a applied on a small time window of the signal to convert it from the time domain to a represenation in the frequency domain. 
 
-Audio data -> spec dens -> FFT -> MFCC and MEL
-
-<img src="{{ site.github.url }}/assets/img/spec_dens.jpg" alt="spect" style="width:516px;height:310px;">
-
-
-MFCC
+For <a href="https://link.springer.com/content/pdf/bbm%3A978-3-319-49220-9%2F1.pdf">MFCC's</a>, the log of the magnitude of the frequencies of the fourier transform are warped on a Mel scale followed by a inverse of a discrete continuous transform. The mel scale  is a perceptual scale that maps frequencies to a percpetual scale of pitches judged to be in equal distance by listeners. The resulting transformation is a 2D array of the intensities 
+of the mel coefficients over time.
 
 <img src="{{ site.github.url }}/assets/img/mfcc_happy_sample.jpg" alt="mfcc" style="width:412px;height:321px;">
 
-MEL
+The mel spectrogram is similar to MFCC but wtih less mathemical operations. The spectrogram generated after the Fourier transform is converted into
+a mel scale.
 
 <img src="{{ site.github.url }}/assets/img/mfcc_fearful_sample.jpg" alt="mel" style="width:419px;height:331px;">
 
@@ -52,19 +50,16 @@ within each dataset. After downloading the dataset, we set out to create a panda
 along with the features extracted from the audio file, and lastly the labeled emotion taken from the name of the audio file.
 In order to extract features from each audio file, we used the audio features that could be easily extracted from the 
 [librosa](https://librosa.org/doc/main/feature.html) package. For the traditional machine learning models, we extracted the first 50 mel
-frequency cepstral coefficients (MFCCs), the first 50 melspectogram values, the linear prediction coefficients in the 12th order, 
+frequency cepstral coefficients (MFCCs), the first 50 mel spectogram values, the linear prediction coefficients in the 12th order, 
 the root mean squared value for each frame, and the mean zero crossing value for the specified audio file. These features were then
 passed into the [featurewiz](https://github.com/AutoViML/featurewiz) method in order to programmatically select relevant features 
 and drop highly correlated features. Featurewiz utilizes the XGBoost algorithm and correlation coefficients in order to extract the 
 best "minimum optimal" features and drop highly correlated features .
 
-While traditional ML methods require some extensive feature engineering, Neural Networks can extract the optimal features that would 
-minimize the loss function. Since the MFCCs and the melspectrograms can be viewed as image, a CNN would be suitable for this classification
-problem. For the 1D Convolutional Neural Network, the preprocessed data used to train the traditional machine learning models was transformed into a
-1D tensor. For the 2D Convolutional Neural Network, all 20 MFCC coefficients were extracted for the first 50 sec of the audio file to create a 2D
-array. The melspectragram was also processed for each audio file utilizing the first 50 sec and first 20 Mel coefficients. The melspectgrams were
-transformed to a log decibel scale with a limit of 80 db and the sampling rate for every feature extraction was standardized at 22050. The two arrays
-were stacked to create a (2,20,50) tensor. 
+While traditional ML methods require some extensive feature engineering, Neural Networks can learn the optimal features for the assigned task. 
+Since the MFCCs and the mel spectrograms can be viewed as images, a CNN would be suitable for this classification problem. For the 1D Convolutional 
+Neural Network, the preprocessed data used to train the traditional machine learning models was transformed into a 1D tensor. For the 2D Convolutional Neural Network, all 20 MFCC coefficients were extracted for the first 50 sec of the audio file to create a 2D array. The mel spectragram was also 
+processed for each audio file utilizing the first 50 sec and first 20 Mel coefficients. The melspectgrams were transformed to a log decibel scale with a limit of 80 db and the sampling rate for every feature extraction was standardized at 22050. The two arrays were stacked to create a (2,20,50) tensor. 
 
 ## Traditional Machine Learning Models
 For the traditional machine learning and deep learning models, we attempted to solve a multi-class classification problem around 4 different 
