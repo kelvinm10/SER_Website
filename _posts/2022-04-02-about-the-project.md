@@ -29,7 +29,9 @@ of different sentences with different tones and emotions.
 ## From Audio to Arrays
 
 There are several audio processing methods avilable but for this study, we mainly focused on Mel Frequency Cepstral Coefficient (MFCC) and
-mel spectrograms. Audio data can be viewed as a signal with different frequencies with corresponding amplitudes propagating through time. A Fourier transform is a applied on a small time window of the signal to convert it from the time domain to a represenation in the frequency domain. 
+mel spectrograms. Audio data can be viewed as a signal with different frequencies with corresponding amplitudes propagating through time. A Fast Fourier transform <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">(FFT)</a>is a applied on a small time window of the signal to convert it from the time domain to a represenation in the frequency domain. 
+
+<img src="{{ site.github.url }}/assets/img/fft.jpg" alt="fft" style="width:401px;height:331px;">
 
 For <a href="https://link.springer.com/content/pdf/bbm%3A978-3-319-49220-9%2F1.pdf">MFCC's</a>, the log of the magnitude of the frequencies of the fourier transform are warped on a Mel scale followed by a inverse of a discrete continuous transform. The mel scale  is a perceptual scale that maps frequencies to a percpetual scale of pitches judged to be in equal distance by listeners. The resulting transformation is a 2D array of the intensities 
 of the mel coefficients over time.
@@ -37,7 +39,7 @@ of the mel coefficients over time.
 <img src="{{ site.github.url }}/assets/img/mfcc_happy_sample.jpg" alt="mfcc" style="width:412px;height:321px;">
 
 The mel spectrogram is similar to MFCC but wtih less mathemical operations. The spectrogram generated after the Fourier transform is converted into
-a mel scale.
+a mel scale. In this following figure, db units were used with 80db as the limit.
 
 <img src="{{ site.github.url }}/assets/img/mfcc_fearful_sample.jpg" alt="mel" style="width:419px;height:331px;">
 
@@ -74,6 +76,9 @@ learning models, as seen in the results tab.
 ## Neural Networks
 For the 1D CNN, The network contained a single convolutional layer (kernel size=5) followed by a ReLU activation layer and a dropout layer (p=0.5). 
 The layer was then flattened followed by a dense layer and softmax regression.
+
+<img src="{{ site.github.url }}/assets/img/1dConvdiagram.jpeg" alt="CNN" style="width:269px;height:386px;">
+
 
 For the 2D CNN, pytorch was utilized along with a CUDA GPU to speed up training. The network architecture involved
 two convolutional layers (stride=2, kernel size=(2,5)) followed by a (2,2) pooling layer. Another convolutional layer 
