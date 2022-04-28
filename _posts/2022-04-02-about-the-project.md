@@ -33,16 +33,16 @@ Powerspectrum
 
 Audio data -> spec dens -> FFT -> MFCC and MEL
 
-<img src="{{ site.github.url }}/assets/img/spec_dens.jpg" alt="cat_dist" style="width:322px;height:194px;">
+<img src="{{ site.github.url }}/assets/img/spec_dens.jpg" alt="spect" style="width:516px;height:310px;">
 
 
 MFCC
 
-<img src="{{ site.github.url }}/assets/img/mfcc_happy_sample.jpg" alt="cat_dist" style="width:432px;height:288px;">
+<img src="{{ site.github.url }}/assets/img/mfcc_happy_sample.jpg" alt="mfcc" style="width:412px;height:321px;">
 
 MEL
 
-<img src="{{ site.github.url }}/assets/img/mfcc_fearful_sample.jpg" alt="cat_dist" style="width:432px;height:288px;">
+<img src="{{ site.github.url }}/assets/img/mfcc_fearful_sample.jpg" alt="mel" style="width:419px;height:331px;">
 
 
 ## Methodology
