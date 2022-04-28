@@ -77,7 +77,7 @@ learning models, as seen in the results tab.
 For the 1D CNN, The network contained a single convolutional layer (kernel size=5) followed by a ReLU activation layer and a dropout layer (p=0.5). 
 The layer was then flattened followed by a dense layer and softmax regression.
 
-<img src="{{ site.github.url }}/assets/img/1dConvdiagram.jpeg" alt="CNN" style="width:269px;height:386px;">
+<img src="{{ site.github.url }}/assets/img/1dConvdiagram.jpeg" alt="Conv" style="width:269px;height:386px;">
 
 
 For the 2D CNN, pytorch was utilized along with a CUDA GPU to speed up training. The network architecture involved
